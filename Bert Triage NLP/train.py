@@ -65,7 +65,7 @@ train_size = int((len(df)//batch_size)*train_split)                         # ge
 valid_size = int(len(df)-train_size)
 train_set = dataset.take(train_size)
 validation_set = dataset.skip(train_size)
-print("Train size per batch: " + str(len(train_set))+"\nValidation size per batch: "+str(len(validation_set)))
+print("Train size each epochs: " + str(len(train_set))+"\nValidation size each epochs: "+str(len(validation_set)))
 
 sentiment_model = create_model()
 
