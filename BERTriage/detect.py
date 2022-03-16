@@ -1,13 +1,13 @@
 import tensorflow as tf
 from transformers import BertTokenizer
 import numpy as np
-from model_config import create_model
-from model_config import label_map
+from BERTriage.model_config import create_model
+from BERTriage.model_config import label_map
 
-model = create_model()
-model.load_weights(r"D:\ICT Competition\model\chkpt\best.hdf5")
-
-tokenizer = BertTokenizer.from_pretrained('bert-base-cased')
+def load_model(model_path):
+    model = create_model()
+    model.load_weights(model_path)
+    return model
 
 
 def prepare_data(input_text, tokenizer):
@@ -25,13 +25,7 @@ def prepare_data(input_text, tokenizer):
     }
 
 
-def make_prediction(model, processed_data, classes=label_map):
+def make_prediction(model, data, classes=label_map):
+    processed_data = prepare_data(data, BertTokenizer.from_pretrained('bert-base-cased'))
     probs = model.predict(processed_data)[0]
     return classes[np.argmax(probs)]
-
-
-while True:
-    input_text = input('Enter request here: ')
-    processed_data = prepare_data(input_text, tokenizer)
-    result = make_prediction(model, processed_data=processed_data)
-    print(f"Predicted Emergency Level: {result}")

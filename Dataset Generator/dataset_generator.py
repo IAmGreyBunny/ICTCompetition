@@ -10,7 +10,6 @@ api_key = "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"
 
 openai.api_key = api_key
 
-
 def generate_text(prompt):
     response = openai.Completion.create(
         engine="text-davinci-001",
