@@ -91,6 +91,7 @@ def train_model(dataset_csv_path,model_checkpoint_path):
         use_multiprocessing=use_multiprocessing
     )
 
-    sentiment_model.save(checkpoint_filepath)
+    model_filepath = os.path.join(model_checkpoint_path,"model")
+    sentiment_model.save(model_filepath)
 
 

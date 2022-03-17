@@ -2,10 +2,9 @@ from flask import Flask
 from flask_restful import Api, Resource,reqparse
 
 import BERTriage.detect
-from BERTriage import detect
 
 #Loads model
-#nlp_model = BERTriage.detect.load_model("MODEL PATH")
+nlp_model = BERTriage.detect.load_model(r"D:\ICT Competition\Model\model.hdf5")
 
 app = Flask(__name__)
 api = Api(app)
@@ -18,7 +17,7 @@ class bertriage_api(Resource):
         args = bertriage_api_args.parse_args()
         data = args['data']
         print(data)
-        #BERTriage.detect.make_prediction(nlp_model,args["data"])
+        print(BERTriage.detect.make_prediction(nlp_model,args["data"]))
         return
 
 
