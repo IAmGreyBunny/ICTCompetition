@@ -1,6 +1,6 @@
 import requests
 
-json_data = {"data": "he is suffering from some slight burns"}
+json_data = {"data": "he is having from heart attack"}
 
 response = requests.post("http://127.0.0.1:5000/bertriage_api", json=json_data)
 print(response.text)

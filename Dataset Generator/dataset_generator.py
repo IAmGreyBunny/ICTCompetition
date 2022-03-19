@@ -27,9 +27,6 @@ perspectives = ["patient", "patient's family member", "medical workers", "rescue
 
 # Described by people with no medical knowledge
 simple_conditions = [
-    ["events that caused death", "medical incident that caused death", "severe injuries that caused death",
-     "cause of death"],
-
     ["heart attack", "shortness of breath", "asthma", "unconsciousness", "strokes", "heavy bleeding", "convulsions",
      "severed limbs", "severe burns on face", "poisoning", "absent radial pulse", "bitten by poisonous animals",
      "large open wound", "fatal gunshot wounds", "fatal cut wounds"],
@@ -53,9 +50,6 @@ simple_conditions = [
 
 # Can be described by all people
 all_conditions = [
-    ["events that caused death", "medical incident that caused death", "severe injuries that caused death",
-     "cause of death"],
-
     ["heart attack", "shortness of breath", "asthma", "unconsciousness", "strokes", "heavy bleeding", "convulsions",
      "severed limbs", "severe burns on face", "poisoning", "absent radial pulse", "bitten by poisonous animals",
      "large open wound", "fatal gunshot wounds", "fatal cut wounds"],
@@ -82,11 +76,11 @@ random_topics = ["football", "politics", "hobbies", "fashion", "tourism", "scene
 
 
 def prompt_construction(pacs_category):
-    if pacs_category >= 6:
+    if pacs_category >= 5:
         prompt = "a sentence from a conversation about " + random.choice(random_topics)
-    elif pacs_category == 0:
-        prompt = random.choice(perspectives) + random.choice(all_conditions[pacs_category])
-    elif pacs_category > 3:  # Only non-emergency workers
+    # elif pacs_category == 0:
+    #     prompt = random.choice(perspectives) + random.choice(all_conditions[pacs_category])
+    elif pacs_category > 2:  # Only non-emergency workers
         perspective = random.choice(perspectives[:2])
         patient_condition = random.choice(simple_conditions[pacs_category])
         if perspective is perspectives[0]:  # first person
@@ -117,7 +111,7 @@ else:
     print("train.csv created")
 
 for i in range(0, 10000):
-    for pacs_category in range(0, 7):
+    for pacs_category in range(0, 6):
         try:
             prompt = prompt_construction(pacs_category)
             generated_sentence = generate_text(prompt).strip()
@@ -128,7 +122,7 @@ for i in range(0, 10000):
                     data_entry = [generated_sentence, pacs_category]
                     writer = csv.writer(f)
                     writer.writerow(data_entry)
-                print("Number of iterations: " + str(i*7+pacs_category))
+                print("Number of iterations: " + str(i*6+pacs_category))
             time.sleep(1)
         except Exception:
             continue

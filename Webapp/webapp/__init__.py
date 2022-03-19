@@ -5,7 +5,7 @@ from flask_restful import Api
 # Initializing flask
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secretkey'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:Password1234@localhost/db_name'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Password1234@localhost/webapp_database'
 
 # Flask extensions
 api = Api(app)

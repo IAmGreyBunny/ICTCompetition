@@ -10,10 +10,10 @@ epochs = 1000
 use_multiprocessing = False
 label_map = [
     'Dead',
-    'P1: Critically ill and requires resuscitation',
-    'P2: Major Emergency',
-    'P3: Minor Emergency',
-    'P4: Non Emergency',
+    '1: Critically ill and requires resuscitation',
+    '2: Major Emergency',
+    '3: Minor Emergency',
+    '4: Non Emergency',
     'Services',
     'Unknown'
 ]

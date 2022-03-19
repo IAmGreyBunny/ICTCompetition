@@ -1,6 +1,9 @@
 from flask_restful import Resource,reqparse
 from webapp import api
+from webapp import db
+from webapp.models import Patient,Bed
 import BERTriage.detect
+from BERTriage.model_config import label_map
 
 # Loads NLP model
 nlp_model = BERTriage.detect.load_model(r"D:\ICT Competition\Model\model.hdf5")
@@ -13,9 +16,27 @@ bertriage_api_args.add_argument("data",type=str,help="Sentence Data is missing",
 class bertriage_api(Resource):
     def post(self):
         args = bertriage_api_args.parse_args()
-        data = args['data']
-        print(data)
-        print(BERTriage.detect.make_prediction(nlp_model,args["data"]))
+        medical_request = args["data"]
+        triage_category = BERTriage.detect.make_prediction(nlp_model,medical_request)
+        patient = Patient(triage_category=triage_category,request=medical_request,status="awaiting treatment")
+        if triage_category == label_map[1]:
+            db.session.add(patient)
+            db.session.commit()
+            ward = "Intensive Care Unit"
+            bed = Bed(ward = ward,patient=patient.patient_id)
+            db.session.add(bed)
+            db.session.commit()
+        elif triage_category == label_map[2]:
+            db.session.add(patient)
+            db.session.commit()
+            print(patient.patient_id)
+            ward = "High Dependency Unit"
+            bed = Bed(ward=ward, patient=patient.patient_id)
+            db.session.add(bed)
+            db.session.commit()
+        else:
+            db.session.add(patient)
+            db.session.commit()
         return
 
 
