@@ -9,7 +9,7 @@ for phrase in phrases:
     json_data = {"data": phrase}
 
     response = requests.post("http://127.0.0.1:5000/bertriage_api", json=json_data)
-    print(response.text)
+    print("Api called")
 
 # import BERTriage.detect
 #
