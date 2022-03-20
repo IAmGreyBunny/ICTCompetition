@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block content %}
+	
+			<hr class="m-0" />
+			<!-- View Listing-->
+            <section class="resume-section" id="view">
+                <div class="resume-section-content">
+                    <h2 class="mb-2 pb-3">View Listing</h2>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5 table-responsive">
+                        <table class="table table-hover text-nowrap">
+						  <thead class="table-dark">
+							<tr>
+							  <th scope="col">Patient ID</th>
+							  <th scope="col">Category</th>
+							  <th scope="col">Requests</th>
+							  <th scope="col">Status</th>
+							  <th scope="col">Bed No.</th>
+							  <th scope="col">Ward</th>
+							  <th scope="col"></th>
+							</tr>
+						  </thead>
+						  <tbody>
+
+							{% for patient in patients %}
+							<tr>
+							  <td>{{ patient.patient_id }}</td>
+							  <td>{{ patient.triage_category }}</td>
+							  <td>{{ patient.request }}</td>
+							  <td>{{ patient.status }}</td>
+							  <td>{{ patient.bed.bed_id }}</td>
+							  <td>{{ patient.bed.ward }}</td>
+							  <td>
+								  <span style="font-size: 24px; color: green;">
+									<a href="/{{patient.patient_id}}/edit"> <i class="fas fa-edit"></i></a>
+								  </span>
+								  <span style="font-size: 24px; color: red;">
+									<a href="/{{patient.patient_id}}/delete"> <i class="fas fa-trash-alt"></i></a>
+								  </span>
+							  </td>
+
+							</tr>
+							{% endfor %}
+
+						  </tbody>
+						</table>
+                    </div>
+                </div>
+            </section>
+            <hr class="m-0" />
+			
+			
+            <!-- Search Listing-->
+            <section class="resume-section" id="search">
+                <div class="resume-section-content">
+                    <h2 class="mb-2">Search Listing</h2>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        
+                    </div>
+                </div>
+            </section>
+            <hr class="m-0" />
+{% endblock content %}

@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<hr class="m-0" />
+			<!-- View Listing-->
+            <section class="resume-section" id="view">
+                <div class="resume-section-content">
+                    <h2 class="mb-2 pb-3">Edit Listing</h2>
+					<div class="container">
+						<form method="post" action="">
+							<table class="table">
+								<tr>
+									<td>Patient ID</td>
+									<td><p>{{patient.patient_id}}</p></td>
+								</tr>
+								<tr>
+									<td>Triage Category</td>
+									<td>
+										<input type="radio" name="triage_category" value="1: Critically ill and requires resuscitation"
+										{% if patient.triage_category=='1: Critically ill and requires resuscitation' %}
+											checked
+										{% endif %}
+										/>
+										1: Critically ill and requires resuscitation
+										<br>
+										<input type="radio" name="triage_category" value="2: Major Emergency"
+										{% if patient.triage_category=='2: Major Emergency' %}
+											checked
+										{% endif %}
+										/>
+										2: Major Emergency 
+										<br>
+										<input type="radio" name="triage_category" value="3: Minor Emergency"
+										{% if patient.triage_category=='3: Minor Emergency' %}
+											checked
+										{% endif %}
+										/>
+										3: Minor Emergency 
+										<br>
+										<input type="radio" name="triage_category" value="4: Non Emergency"
+										{% if patient.triage_category=='4: Non Emergency' %}
+											checked
+										{% endif %}
+										/>
+										4: Non Emergency 
+										<br>
+										<input type="radio" name="triage_category" value="services"
+										{% if patient.triage_category=='services' %}
+											checked
+										{% endif %}
+										/>
+										Services 
+									</td>
+								</tr>
+								<tr>
+									<td>Status</td>
+									<td>
+										<input type="radio" name="status" value="awaiting treatment"
+										{% if patient.status=='awaiting treatment' %}
+											checked
+										{% endif %}
+										/>
+										Awaiting Treatment
+										<br>
+										<input type="radio" name="status" value="ongoing treatment"
+										{% if patient.status=='ongoing treatment' %}
+											checked
+										{% endif %}
+										/>
+										Ongoing Treatment
+										<br>
+										<input type="radio" name="status" value="completed treatment"
+										{% if patient.status=='completed treatment' %}
+											checked
+										{% endif %}
+										/>
+										Completed Treatment
+									</td>
+								</tr>
+								<tr>
+									<td>Bed ID</td>
+									<td><input type="text" name="bed_id" class="form-control" value="{{patient.bed.bed_id}}"></td>
+								</tr>
+								<tr>
+									<td>Ward</td>
+									<td><input type="text" name="ward" class="form-control" value="{{patient.bed.ward}}"></td>
+								</tr>
+								
+								<tr>
+									<td colspan="2">
+										<input type="submit" name="submit" value="submit" class="btn btn-warning me-2"/>
+										<input type="button" name="reset" value="reset" class="btn btn-warning"/>
+									</td>
+									
+								</tr>
+							
+							</table>
+						</form>
+					</div>
+				</div>
+			</section>
+
+
+{% endblock %}
