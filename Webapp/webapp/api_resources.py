@@ -6,7 +6,7 @@ import BERTriage.detect
 from BERTriage.model_config import label_map
 
 # Loads NLP model
-nlp_model = BERTriage.detect.load_model(r"D:\ICT Competition\Model\model.hdf5")
+nlp_model = BERTriage.detect.load_model(r"D:\ICT Competition\Model\6_class_model.hdf5")
 
 # Configuring bertriage api call
 bertriage_api_args = reqparse.RequestParser()
@@ -29,7 +29,6 @@ class bertriage_api(Resource):
         elif triage_category == label_map[2]:
             db.session.add(patient)
             db.session.commit()
-            print(patient.patient_id)
             ward = "High Dependency Unit"
             bed = Bed(ward=ward, patient=patient.patient_id)
             db.session.add(bed)

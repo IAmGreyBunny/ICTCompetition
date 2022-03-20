@@ -6,7 +6,7 @@ import csv
 import time
 import pandas as pd
 
-api_key = "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"
+api_key = "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"
 
 openai.api_key = api_key
 

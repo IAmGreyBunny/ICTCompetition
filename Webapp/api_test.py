@@ -1,13 +1,19 @@
 import requests
 
-json_data = {"data": "he is having from heart attack"}
+phrases = ["Help, my dad is having difficulty breathing",
+           "my brother arm is broken",
+           "i bumped my head yesterday and have a really bad headache",
+           "i am coughing way too much"]
 
-response = requests.post("http://127.0.0.1:5000/bertriage_api", json=json_data)
-print(response.text)
+for phrase in phrases:
+    json_data = {"data": phrase}
+
+    response = requests.post("http://127.0.0.1:5000/bertriage_api", json=json_data)
+    print(response.text)
 
 # import BERTriage.detect
 #
 # #Loads model
 # data = "My head pain"
-# nlp_model = BERTriage.detect.load_model(r"D:\ICT Competition\Model\model.hdf5")
+# nlp_model = BERTriage.detect.load_model(r"D:\ICT Competition\Model\7_class_model.hdf5")
 # print(BERTriage.detect.make_prediction(nlp_model,data))

@@ -3,13 +3,12 @@ from transformers import TFBertModel
 
 # Hyperparameters
 max_length_of_phrase = 256
-num_of_classes = 7
+num_of_classes = 6
 batch_size = 2
 train_split = 0.8
 epochs = 1000
 use_multiprocessing = False
 label_map = [
-    'Dead',
     '1: Critically ill and requires resuscitation',
     '2: Major Emergency',
     '3: Minor Emergency',
