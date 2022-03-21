@@ -11415,11 +11415,46 @@ section.resume-section {
   padding-right: 1rem;
   padding-top: 5rem;
   padding-bottom: 5rem;
-  max-width: 75rem;
 }
 section.resume-section .resume-section-content {
   width: 100%;
 }
+
+tr.resuscitation{
+background-color:#FF0000
+}
+tr.resuscitation td{
+color:#FFFFFF
+}
+
+tr.majorEmergency{
+background-color:#FFA500
+}
+tr.majorEmergency td{
+color:#000000
+}
+
+tr.minorEmergency{
+background-color:#FFFF00
+}
+tr.minorEmergency td{
+color:#000000
+}
+
+tr.nonEmergency{
+background-color:#00FF00
+}
+tr.nonEmergency td{
+color:#000000
+}
+
+tr.services{
+background-color:#FFFFFF
+}
+tr.services td{
+color:#000000
+}
+
 
 @media (min-width: 768px) {
   section.resume-section {

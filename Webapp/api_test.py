@@ -3,7 +3,11 @@ import requests
 phrases = ["Help, my dad is having difficulty breathing",
            "my brother arm is broken",
            "i bumped my head yesterday and have a really bad headache",
-           "i am coughing way too much"]
+           "i am coughing way too much",
+           "Help, his having a heart attack",
+           "Help, i found him unconscious",
+           "My sister fell off a ladder and broke her arm",
+           "I am having difficulties with my bowels"]
 
 for phrase in phrases:
     json_data = {"data": phrase}
