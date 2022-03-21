@@ -27,8 +27,8 @@
 							  <td>{{ patient.triage_category }}</td>
 							  <td>{{ patient.request }}</td>
 							  <td>{{ patient.status }}</td>
-							  <td>{{ patient.bed.bed_id }}</td>
-							  <td>{{ patient.bed.ward }}</td>
+							  <td>{{ patient.patient_bed.bed_id }}</td>
+							  <td>{{ patient.patient_bed.ward }}</td>
 							  <td>
 								  <span style="font-size: 24px; color: green;">
 									<a href="/{{patient.patient_id}}/edit"> <i class="fas fa-edit"></i></a>
@@ -49,14 +49,13 @@
             <hr class="m-0" />
 			
 			
-            <!-- Search Listing-->
-            <section class="resume-section" id="search">
-                <div class="resume-section-content">
-                    <h2 class="mb-2">Search Listing</h2>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        
-                    </div>
-                </div>
-            </section>
-            <hr class="m-0" />
+<!--            &lt;!&ndash; Search Listing&ndash;&gt;-->
+<!--            <section class="resume-section" id="search">-->
+<!--                <div class="resume-section-content">-->
+<!--                    <h2 class="mb-2">Search Listing</h2>-->
+<!--                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </section>-->
+<!--            <hr class="m-0" />-->
 {% endblock content %}
