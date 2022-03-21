@@ -1,11 +1,12 @@
 import requests
 
-phrases = ["Help, my dad is having difficulty breathing",
+phrases = ["Help my dad is having difficulty breathing",
+           "Please help me my arm is broken",
            "my brother arm is broken",
            "i bumped my head yesterday and have a really bad headache",
            "i am coughing way too much",
-           "Help, his having a heart attack",
-           "Help, i found him unconscious",
+           "Help his having a heart attack",
+           "i found an unconscious man",
            "My sister fell off a ladder and broke her arm",
            "I am having difficulties with my bowels"]
 

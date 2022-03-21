@@ -10,7 +10,7 @@ from webapp import db
 
 @app.route("/", methods=['GET'])
 def home():
-    patients = Patient.query.order_by(Patient.triage_category.asc(),Patient.patient_id.asc()).all()
+    patients = Patient.query.order_by(Patient.triage_category.asc(),Patient.status.asc(),Patient.patient_id.asc()).all()
     return render_template('home.html', patients=patients)
 
 
